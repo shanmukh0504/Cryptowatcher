@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import CryptoContext from "./CryptoContext";
 import "react-alice-carousel/lib/alice-carousel.css";
-import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -14,5 +13,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById("root")
 );
-
-serviceWorkerRegistration.register();

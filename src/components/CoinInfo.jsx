@@ -76,7 +76,7 @@ const CoinInfo = ({ coin }) => {
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [days]);
+  }, [days, currency]);
 
   const darkTheme = createTheme({
     palette: {
@@ -209,7 +209,7 @@ const CoinInfo = ({ coin }) => {
                   error={
                     predictionDate &&
                     !/^\d{4}-\d{2}-\d{2}$/.test(predictionDate)
-                  } // Highlight red if pattern doesn't match
+                  }
                   helperText={
                     predictionDate &&
                     !/^\d{4}-\d{2}-\d{2}$/.test(predictionDate)
@@ -224,8 +224,8 @@ const CoinInfo = ({ coin }) => {
                   className={classes.predictionButton}
                   disabled={
                     loading ||
-                    !predictionDate || // Disable if no date is provided
-                    !/^\d{4}-\d{2}-\d{2}$/.test(predictionDate) // Disable if pattern doesn't match
+                    !predictionDate ||
+                    !/^\d{4}-\d{2}-\d{2}$/.test(predictionDate)
                   }
                 >
                   {loading ? (
@@ -270,7 +270,7 @@ const CoinInfo = ({ coin }) => {
                     >
                       {currency === "INR"
                         ? `${(predictionResult * 84.5).toFixed(2)}`
-                        : `${predictionResult.toFixed(2)}`}{" "}
+                        : `${predictionResult.toFixed(2)} `}{" "}
                       {currency}
                     </Typography>
                   </Box>
